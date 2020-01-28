@@ -12,32 +12,40 @@ body {
     color: red;
     font-size: 0.7rem;
     margin: 0px;
+    height: 1rem;
   }
 }
 
 .app-input {
   position: relative;
-  width: $input-width;
+  max-width: $input-width;
   margin: 0 auto;
-  height: 50px;
+
   label {
     line-height: 30px;
-    position: absolute;
-    left: -400px;
-    width: 400px;
     text-align: right;
     display: inline-block;
   }
   input {
+    display: inline-block;
     width: 100%;
     height: $input-height;
+    text-align: right;
     margin: 1px;
   }
-  
+
+  @media screen and (min-width: 600px) {
+    label {
+      position: absolute;
+      left: -400px;
+      width: 400px;
+    }
+  }
 }
 
 button.primary {
-  width: $input-width;
+  max-width: $input-width;
+  width: 100%;
   border-radius: 4px;
   border-color: #ce718c;
   height: $input-height;
@@ -61,7 +69,7 @@ button.primary {
       margin: 0 5px;
       border: solid $loader-color1;
       border-width: 3px 0 0 0;
-      animation: load3 1.4s infinite linear;
+      animation: rotation-animation 1.4s infinite linear;
       transform: translateZ(0);
     }
   }
@@ -82,9 +90,7 @@ footer {
   background-color: #cccccc;
 }
 
-
-
-@-webkit-keyframes load3 {
+@-webkit-keyframes rotation-animation {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);

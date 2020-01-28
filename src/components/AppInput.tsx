@@ -24,7 +24,7 @@ export class AppInput extends Component {
         return <div className="app-input">
             <label htmlFor={name}>{label}</label>
             <input type={type} id={name} onChange={(e) => this.value = e.target.value} disabled={disable}></input>
-            {error && <p className="error">{error}</p>}
+            <p className="error">{error}</p>
         </div>
     }
 }
