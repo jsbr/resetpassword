@@ -21,7 +21,7 @@ export class ResetPassword extends Component {
             <p>Please enter the email address registred in your account</p>
             <AppInput label="Email address" type="email" name="email" error={error} ref={(el) => this.emailInput = el} disable={buzy}></AppInput>
             {success && <p className="success">{success}</p>}
-            <PrimaryButton buzy={buzy} label="Todo" onClick={() => this.submit()}></PrimaryButton>
+            <PrimaryButton buzy={buzy} label="Reset password" onClick={() => this.submit()}></PrimaryButton>
 
         </div>)
     }
