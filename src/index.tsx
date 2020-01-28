@@ -7,10 +7,10 @@ import "./styles/app.scss"
 
 class App extends Component {
   render() {
-    return (<div>
+    return <div>
         <ResetPassword/>
         <Footer/>
-    </div>)
+    </div>
   }
 }
 

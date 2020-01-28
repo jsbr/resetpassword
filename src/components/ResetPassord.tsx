@@ -16,38 +16,29 @@ export class ResetPassword extends Component {
 
     render() {
         const { error, buzy, success } = this.state;
-        return (<div className="forgetPassword">
+        return <div className="forgetPassword">
             <h1>Forget or password?</h1>
             <p>Please enter the email address registred in your account</p>
             <AppInput label="Email address" type="email" name="email" error={error} ref={(el) => this.emailInput = el} disable={buzy}></AppInput>
             {success && <p className="success">{success}</p>}
             <PrimaryButton buzy={buzy} label="Reset password" onClick={() => this.submit()}></PrimaryButton>
-
-        </div>)
+        </div>
     }
 
 
     async submit() {
         const value = this.emailInput?.value || "";
 
-        this.setState({
-            buzy: true
-        });
+        this.setState({ buzy: true });
         try {
             const result = await this.resetPasswordService.post(value);
-            this.setState({
-                success: result.message
-            });
+            this.setState({ success: result.message });
         }
         catch (e) {
-            this.setState({
-                error: e.message
-            });
+            this.setState({ error: e.message });
         }
         finally {
-            this.setState({
-                buzy: false
-            });
+            this.setState({ buzy: false });
         }
     }
 }
